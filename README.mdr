@@ -1,0 +1,8 @@
+# Aplicación de comercio electrónico
+
+**Autor:** Joaquín Ignacio Muñoz López
+
+Este proyecto contiene la estructura inicial de una aplicación de e-commerce. Incluye:
+
+- Página de inicio (`index.html`)
+- Página de registro (`registro.html`) con los campos: nombre, apellido, email, contraseña y fecha de nacimiento.
