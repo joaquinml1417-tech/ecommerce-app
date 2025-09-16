@@ -3,26 +3,88 @@
 <head>
   <meta charset="UTF-8">
   <title>Registro</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f4f4f4;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .form-container {
+      background-color: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 30px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #333;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-sizing: border-box;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+  </style>
 </head>
 <body>
-  <h2>Formulario de Registro</h2>
-  <form>
-    <label>Nombre:</label><br>
-    <input type="text" name="nombre"><br>
+  <div class="form-container">
+    <h2>Formulario de Registro</h2>
+    <form>
+      <label for="nombre">Nombre:</label>
+      <input type="text" name="nombre" id="nombre" required>
 
-    <label>Apellido:</label><br>
-    <input type="text" name="apellido"><br>
+      <label for="apellido">Apellido:</label>
+      <input type="text" name="apellido" id="apellido" required>
 
-    <label>Email:</label><br>
-    <input type="email" name="email"><br>
+      <label for="email">Email:</label>
+      <input type="email" name="email" id="email" required>
 
-    <label>Contraseña:</label><br>
-    <input type="password" name="password"><br>
+      <label for="password">Contraseña:</label>
+      <input type="password" name="password" id="password" required>
 
-    <label>Fecha de nacimiento:</label><br>
-    <input type="date" name="fecha"><br><br>
+      <label for="fecha">Fecha de nacimiento:</label>
+      <input type="date" name="fecha" id="fecha" required>
 
-    <button type="submit">Registrarse</button>
-  </form>
+      <button type="submit">Registrarse</button>
+    </form>
+  </div>
 </body>
 </html>
+
