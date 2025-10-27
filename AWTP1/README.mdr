@@ -1,0 +1,72 @@
+🛍️ Casa Nova - Aplicación de E-commerce
+
+Autor: Joaquín Ignacio Muñoz López 
+
+Materia: Aplicaciones Web 
+
+Etapa: Segunda entrega del trabajo práctico
+
+🧾 Descripción:
+
+Casa Nova es una aplicación de comercio electrónico orientada al hogar y la tecnología. Esta segunda etapa se enfoca en aplicar estilos visuales y de navegación para mejorar la experiencia del usuario, respetando la identidad de marca y las consignas del trabajo práctico.
+
+🎨 Estilos aplicados:
+
+Paleta de colores personalizada con tonos celestes, blancos y acentos cálidos.
+
+Fondo con degradado suave para mejorar la estética general.
+
+Navbar estilizado con íconos, enlaces funcionales y diseño responsive.
+
+Formularios de login y registro con campos validados y diseño limpio.
+
+Cards de producto con imagen, descripción, precio y botón animado.
+
+Logo centrado en la página principal para reforzar identidad visual.
+
+📁 Archivos incluidos:
+
+index.html: Página principal con bienvenida, logo centrado y acceso al registro.
+
+registro.html: Formulario de registro estilizado.
+
+login.html: Formulario de inicio de sesión estilizado.
+
+decoracion.html: Categoría con cards de productos decorativos.
+
+tecnologia.html: Categoría con cards de productos tecnológicos.
+
+hogar.html: Categoría con cards de productos para el hogar.
+
+carrito.html: Página de carrito enlazada desde el navbar.
+
+style.css: Archivo de estilos compartido entre todas las páginas.
+
+images/: Carpeta con imágenes convertidas a .webp y logo en .jpg.
+
+js/validacion.js: Validación de formularios.
+
+README.md: Documentación del proyecto.
+
+🧭 Navegación:
+
+Todas las páginas incluyen un navbar con enlaces a:
+
+Home
+
+Decoración
+
+Tecnología
+
+Hogar
+
+Carrito
+
+Logout
+
+✅ Estado del proyecto:
+
+La estructura está completa y funcional. Se aplicaron estilos visuales coherentes con la identidad de marca. Todos los archivos fueron verificados en Visual Studio Code y subidos al repositorio público en GitHub.
+
+🌐 Repositorio
+https://github.com/joaquinml1417-tech/ecommerce-app
