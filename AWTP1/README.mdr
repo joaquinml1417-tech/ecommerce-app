@@ -21,7 +21,7 @@ Componente de cards de productos con imagen, título, descripción, precio y con
 
 Validación de campos en formularios de login y registro.
 
-Eliminación de código duplicado para mejorar la mantenibilidad.
+Eliminación de código duplicado.
 
 🎨 Estilos aplicados
 Paleta de colores celeste, blanco y acentos cálidos.
@@ -83,3 +83,4 @@ Logout
 🌐 Repositorio
 
 https://github.com/joaquinml1417-tech/ecommerce-app
+
