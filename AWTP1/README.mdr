@@ -1,8 +1,12 @@
 🛍️ Casa Nova - Aplicación de E-commerce
-Autor: Joaquín Ignacio Muñoz López Materia: Aplicaciones Web Etapa: Tercera entrega del trabajo práctico
+
+Autor: Joaquín Ignacio Muñoz López 
+Materia: Aplicaciones Web 
+Etapa: Tercera entrega del trabajo práctico
 
 🧾 Descripción
-Casa Nova es una aplicación de comercio electrónico orientada al hogar y la tecnología. En esta tercera etapa se incorporan mejoras estructurales y funcionales, enfocadas en la mantenibilidad del código, la reutilización de componentes y la navegación dinámica entre páginas.
+Casa Nova es una aplicación de comercio electrónico orientada al hogar y la tecnología. 
+En esta tercera etapa se incorporan mejoras estructurales y funcionales, enfocadas en la mantenibilidad del código, la reutilización de componentes y la navegación dinámica entre páginas.
 
 🧩 Mejoras implementadas
 Redirección automática desde el login a la página principal una vez iniciado sesión.
@@ -62,7 +66,7 @@ js/card.js: Componente reutilizable de productos.
 README.md: Documentación del proyecto.
 
 🧭 Navegación
-Todas las páginas (excepto login) incluyen un navbar dinámico con enlaces a:
+Todas las páginas incluyen un navbar dinámico con enlaces a:
 
 Home
 
@@ -77,4 +81,5 @@ Carrito
 Logout
 
 🌐 Repositorio
+
 https://github.com/joaquinml1417-tech/ecommerce-app
