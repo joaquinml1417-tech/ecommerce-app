@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Casa Nova - Inicio</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="logo-bienvenida">
+      <img src="images/Logo.jpg" alt="Logo Casa Nova">
+    </div>
+
+    <h1>Bienvenido a <span class="highlight">Casa Nova</span></h1>
+    <p id="mensaje-bienvenida">Explorá nuestros productos o registrate para comenzar.</p>
+    <a class="btn" href="pages/registro.html">Ir al registro</a>
+  </div>
+
+  <script type="module" src="js/navbar.js"></script>
+  <script src="js/logout.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const registrado = sessionStorage.getItem("usuarioRegistrado");
+      const logueado = sessionStorage.getItem("usuarioLogueado");
+      const mensajeLogin = sessionStorage.getItem("mensajeLogin");
+
+      const botonRegistro = document.querySelector(".btn");
+      const mensaje = document.getElementById("mensaje-bienvenida"); 
+      if (registrado === "true" || logueado === "true") {
+        if (botonRegistro) botonRegistro.style.display = "none";
+        if (mensaje) mensaje.textContent = "Bienvenido de nuevo. Explorá nuestras categorías y descubrí productos para tu hogar y vida digital.";
+      }
+      if (mensajeLogin) {
+        alert(mensajeLogin);
+        sessionStorage.removeItem("mensajeLogin");
+      }
+    });
+  </script>
+</body>
+</html>
+
+
