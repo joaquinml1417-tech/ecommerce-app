@@ -1,4 +1,4 @@
-/* Reset y fuente base */
+/* Fuente base */
 body {
   margin: 0;
   padding: 0;
@@ -143,3 +143,4 @@ form button:hover {
   width: 120px; /* ajustá según lo que se vea mejor */
   height: auto;
 }
+
