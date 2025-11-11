@@ -1,0 +1,81 @@
+🛍️ Casa Nova - Aplicación de E-commerce  
+**Autor:** Joaquín Ignacio Muñoz López  
+**Materia:** Aplicaciones Web  
+**Etapa:** Cuarta entrega del trabajo práctico
+
+---
+
+🧾 **Descripción**  
+Casa Nova es una aplicación de comercio electrónico orientada al hogar y la tecnología. En esta cuarta etapa se consolidan mejoras visuales, funcionales y estructurales, enfocadas en la navegación dinámica, la modularización del código y la experiencia del usuario.
+
+---
+
+🧩 **Mejoras implementadas**
+
+- Redirección automática desde el login a la página principal una vez iniciada la sesión.
+- Botón de logout funcional que redirige al login y oculta el ítem “Login” del navbar.
+- Estructura de datos en JavaScript para centralizar rutas, íconos y títulos del navbar.
+- Componente de navbar reutilizable en todas las páginas, generado dinámicamente con íconos.
+- Componente de cards de productos con renderizado condicional según sesión iniciada.
+- Validación de campos en formularios de login y registro.
+- Eliminación de código duplicado para mejorar la mantenibilidad.
+- Scroll horizontal funcional en el home con botones de desplazamiento.
+- Renderizado limpio en el home: productos solo en la barra lateral, sin duplicaciones.
+
+---
+
+🎨 **Estilos aplicados**
+
+- Paleta de colores celeste, blanco y acentos cálidos.
+- Fondo con degradado suave.
+- Navbar estilizado con íconos negros y enlaces funcionales.
+- Formularios limpios, validados y accesibles.
+- Cards con diseño compacto y botones animados.
+- Logo centrado en la página principal.
+
+---
+
+📁 **Archivos incluidos**
+
+- `index.html`: Página principal con bienvenida dinámica y barra lateral de productos.
+- `login.html`: Formulario de inicio de sesión con validación y redirección.
+- `registro.html`: Formulario de registro estilizado con validación.
+- `decoracion.html`, `tecnologia.html`, `hogar.html`: Categorías con cards de productos.
+- `carrito.html`: Página de carrito con estructura lista para mostrar productos.
+- `css/style.css`: Estilos compartidos.
+- `images/`: Carpeta con imágenes en formato `.webp` y logo en `.jpg`.
+- `js/data.js`: Estructura de navegación centralizada.
+- `js/navbar.js`: Componente dinámico de navegación.
+- `js/logout.js`: Lógica de cierre de sesión y redirección.
+- `js/login.js`: Validación de formulario y redirección al home tras login.
+- `js/registro.js`: Validación de formulario de registro y redirección al home.
+- `README.md`: Documentación del proyecto.
+
+---
+
+🧭 **Navegación**
+
+Todas las páginas incluyen un navbar dinámico con enlaces a:
+
+- Home  
+- Decoración  
+- Tecnología  
+- Hogar  
+- Carrito  
+- Login / Cerrar sesión (según estado)
+
+---
+
+🧪 **Validación técnica**
+
+- Navegación entre páginas sin errores.
+- Productos cargan correctamente desde `productos.json`.
+- Scroll lateral funcional con botones en el home.
+- Renderizado condicional de botones según sesión iniciada.
+- Sesión persistente con `sessionStorage`.
+- Código modular, limpio y reutilizable.
+
+---
+
+🌐 **Repositorio**  
+https://github.com/joaquinml1417-tech/ecommerce-app.git
