@@ -19,7 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const card = document.createElement("div");
         card.className = "product-card";
 
-        // Contenido base
         let contenido = `
           <img src="${p.imagen}" alt="${p.titulo}" class="product-img">
           <h3>${p.titulo}</h3>
@@ -57,4 +56,5 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 });
+
 
