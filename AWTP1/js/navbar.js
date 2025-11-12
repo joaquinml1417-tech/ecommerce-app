@@ -26,7 +26,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const link = document.createElement("a");
     link.href = item.url;
 
-    // Mostrar ícono solo si no es "Cerrar sesión"
     if (item.icon && item.title !== "Cerrar sesión") {
       link.innerHTML = `<img src="${item.icon}" alt="${item.title}" height="20"> ${item.title}`;
     } else {
@@ -44,4 +43,5 @@ document.addEventListener("DOMContentLoaded", () => {
   navbar.appendChild(links);
   document.body.prepend(navbar);
 });
+
 
