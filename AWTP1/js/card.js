@@ -27,7 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
           <span class="price">$${p.precio}</span>
         `;
 
-        // Controles de cantidad solo si hay sesión
         if (logueado) {
           contenido += `
             <div class="cantidad">
@@ -40,7 +39,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         card.innerHTML = contenido;
 
-        // Botón de agregar al carrito (siempre visible)
         const boton = document.createElement("button");
         boton.className = "btn";
         boton.textContent = "Agregar al carrito";
@@ -50,7 +48,6 @@ document.addEventListener("DOMContentLoaded", () => {
             alert("Debés iniciar sesión para añadir productos al carrito.");
             window.location.href = "../pages/login.html";
           } else {
-            // lógica para añadir al carrito (puede ser futura)
             console.log(`Producto ${p.titulo} añadido al carrito`);
           }
         });
@@ -60,3 +57,4 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 });
+
