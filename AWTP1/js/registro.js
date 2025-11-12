@@ -18,9 +18,9 @@ formRegistro.addEventListener("submit", (e) => {
     return;
   }
 
-  // Activar sesión
   sessionStorage.setItem("usuarioRegistrado", "true");
   sessionStorage.setItem("usuarioLogueado", "true");
   sessionStorage.setItem("mensajeLogin", "Registro exitoso. Sesión iniciada.");
   window.location.href = "../index.html";
 });
+
