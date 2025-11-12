@@ -6,11 +6,9 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <!-- Navbar dinámico -->
   <script type="module" src="js/navbar.js"></script>
 
   <div class="container">
-    <!-- Logo y bienvenida -->
     <div class="logo-bienvenida">
       <img src="images/Logo.jpg" alt="Logo Casa Nova">
     </div>
@@ -19,13 +17,11 @@
     <p id="mensaje-bienvenida">Explorá nuestros productos o registrate para comenzar.</p>
     <a class="btn" href="pages/registro.html">Ir al registro</a>
 
-    <!-- Sección destacada -->
     <div class="destacado">
       <h3>¡Descubrí lo nuevo!</h3>
       <p>Productos seleccionados para transformar tu hogar con estilo y tecnología.</p>
     </div>
 
-    <!-- Promoción con tarjeta -->
     <div class="promo-tarjeta">
       <img src="images/promo-visa.webp" alt="Promo Visa" class="promo-img">
       <div class="promo-texto">
@@ -35,7 +31,6 @@
       </div>
     </div>
 
-    <!-- Barra de productos aleatorios con scroll -->
     <div class="barra-scroll">
       <h3>Inspirate con estos productos</h3>
       <div class="scroll-controls">
@@ -45,11 +40,9 @@
       <div id="scroll-productos" class="scroll-container"></div>
     </div>
 
-    <!-- Productos por categoría si hay sesión -->
     <div id="productos-home" class="product-grid"></div>
   </div>
 
-  <!-- Scripts -->
   <script src="js/logout.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
@@ -68,7 +61,6 @@
         if (botonRegistro) botonRegistro.style.display = "none";
         if (mensaje) mensaje.textContent = "Bienvenido de nuevo. Explorá nuestras categorías y descubrí productos para tu hogar y vida digital.";
 
-        // Mostrar 2 productos por categoría en el home
         fetch("data/productos.json")
           .then(res => res.json())
           .then(productos => {
@@ -98,7 +90,6 @@
           });
       }
 
-      // Productos aleatorios en barra scroll
       fetch("data/productos.json")
         .then(res => res.json())
         .then(productos => {
@@ -118,7 +109,6 @@
           });
         });
 
-      // Activar botones de scroll lateral
       document.getElementById("scroll-left").addEventListener("click", () => {
         document.getElementById("scroll-productos").scrollBy({ left: -300, behavior: "smooth" });
       });
@@ -129,10 +119,10 @@
     });
   </script>
 
-  <!-- Footer -->
   <footer>
     <p>&copy; 2025 Casa Nova. Todos los derechos reservados.</p>
     <p>Contacto: info@casanova.com.ar</p>
   </footer>
 </body>
 </html>
+
