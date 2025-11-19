@@ -18,14 +18,14 @@ document.addEventListener("DOMContentLoaded", () => {
       mensaje.textContent = "Bienvenido de nuevo. Explorá nuestras categorías y descubrí productos para tu hogar y vida digital.";
     }
 
-    fetch("datos/productos.json")
+    fetch("data/productos.json")
       .then(res => res.json())
       .then(productos => renderProductosHome(productos))
       .catch(err => console.error("Error cargando productos del home:", err));
   }
 
   // Renderizar barra scroll con productos aleatorios
-  fetch("datos/productos.json")
+  fetch("data/productos.json")
     .then(res => res.json())
     .then(productos => renderScroll(productos))
     .catch(err => console.error("Error cargando productos scroll:", err));
@@ -52,33 +52,13 @@ function renderProductosHome(productos) {
       `;
       card.querySelector(".btn").addEventListener("click", () => agregarAlCarrito(p));
       contenedor.appendChild(card);
-      function renderScroll(productos) {
-  console.log("Renderizando scroll con:", productos); // 👈 esto
-
-  const aleatorios = productos.sort(() => 0.5 - Math.random()).slice(0, 8);
-  const contenedorScroll = document.getElementById("scroll-productos");
-
-  contenedorScroll.innerHTML = "";
-
-  aleatorios.forEach(p => {
-    const card = document.createElement("div");
-    card.className = "product-card";
-    card.innerHTML = `
-      <img src="${p.imagen}" alt="${p.titulo}" class="product-img">
-      <h3>${p.titulo}</h3>
-      <p>${p.descripcion}</p>
-      <span class="price">$${p.precio}</span>
-    `;
-    contenedorScroll.appendChild(card);
-  });
-}
-
     });
   });
 }
 
 // Renderiza barra scroll con 8 productos aleatorios
 function renderScroll(productos) {
+  console.log("Renderizando scroll con:", productos); // debug
   const aleatorios = productos.sort(() => 0.5 - Math.random()).slice(0, 8);
   const contenedorScroll = document.getElementById("scroll-productos");
 
@@ -121,6 +101,5 @@ function agregarAlCarrito(producto) {
   localStorage.setItem("carrito", JSON.stringify(carrito));
   alert(`"${producto.titulo}" fue agregado al carrito`);
 }
-
 
 
