@@ -5,27 +5,35 @@ document.addEventListener("DOMContentLoaded", () => {
   const botonRegistro = document.querySelector(".btn");
   const mensaje = document.getElementById("mensaje-bienvenida");
 
+  // Mostrar mensaje de login si existe
   if (mensajeLogin) {
     alert(mensajeLogin);
     sessionStorage.removeItem("mensajeLogin");
   }
 
+  // Si el usuario está logueado, ocultar botón de registro y mostrar productos destacados
   if (logueado) {
     if (botonRegistro) botonRegistro.style.display = "none";
-    if (mensaje) mensaje.textContent = "Bienvenido de nuevo. Explorá nuestras categorías y descubrí productos para tu hogar y vida digital.";
+    if (mensaje) {
+      mensaje.textContent = "Bienvenido de nuevo. Explorá nuestras categorías y descubrí productos para tu hogar y vida digital.";
+    }
 
-    fetch("data/productos.json")
+    fetch("datos/productos.json")
       .then(res => res.json())
-      .then(productos => renderProductosHome(productos));
+      .then(productos => renderProductosHome(productos))
+      .catch(err => console.error("Error cargando productos del home:", err));
   }
 
-  fetch("data/productos.json")
+  // Renderizar barra scroll con productos aleatorios
+  fetch("datos/productos.json")
     .then(res => res.json())
-    .then(productos => renderScroll(productos));
+    .then(productos => renderScroll(productos))
+    .catch(err => console.error("Error cargando productos scroll:", err));
 
   initScrollControls();
 });
 
+// Renderiza productos destacados en el home (2 por categoría)
 function renderProductosHome(productos) {
   const categorias = ["decoracion", "tecnologia", "hogar"];
   const contenedor = document.getElementById("productos-home");
@@ -48,6 +56,7 @@ function renderProductosHome(productos) {
   });
 }
 
+// Renderiza barra scroll con 8 productos aleatorios
 function renderScroll(productos) {
   const aleatorios = productos.sort(() => 0.5 - Math.random()).slice(0, 8);
   const contenedorScroll = document.getElementById("scroll-productos");
@@ -65,6 +74,7 @@ function renderScroll(productos) {
   });
 }
 
+// Controles de scroll lateral
 function initScrollControls() {
   document.getElementById("scroll-left").addEventListener("click", () => {
     document.getElementById("scroll-productos").scrollBy({ left: -300, behavior: "smooth" });
@@ -74,14 +84,18 @@ function initScrollControls() {
   });
 }
 
+// Agregar producto al carrito
 function agregarAlCarrito(producto) {
   let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
   const existente = carrito.find(p => p.id === producto.id);
+
   if (existente) {
     existente.cantidad += 1;
   } else {
     carrito.push({ ...producto, cantidad: 1 });
   }
+
   localStorage.setItem("carrito", JSON.stringify(carrito));
   alert(`"${producto.titulo}" fue agregado al carrito`);
 }
+
