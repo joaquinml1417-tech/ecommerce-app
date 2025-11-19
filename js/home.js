@@ -5,6 +5,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const botonRegistro = document.querySelector(".btn");
   const mensaje = document.getElementById("mensaje-bienvenida");
 
+  // Detectar si estamos en GitHub Pages o en local
+  const repo = window.location.pathname.split("/")[1]; // "ecommerce-app" en Pages
+  const basePath = repo ? `/${repo}/` : "./";
+
   // Mostrar mensaje de login si existe
   if (mensajeLogin) {
     alert(mensajeLogin);
@@ -18,14 +22,14 @@ document.addEventListener("DOMContentLoaded", () => {
       mensaje.textContent = "Bienvenido de nuevo. Explorá nuestras categorías y descubrí productos para tu hogar y vida digital.";
     }
 
-    fetch("/ecommerce-app/datos/productos.json")
+    fetch(basePath + "datos/productos.json")
       .then(res => res.json())
       .then(productos => renderProductosHome(productos))
       .catch(err => console.error("Error cargando productos del home:", err));
   }
 
   // Renderizar barra scroll con productos aleatorios
-  fetch("/ecommerce-app/datos/productos.json")
+  fetch(basePath + "datos/productos.json")
     .then(res => res.json())
     .then(productos => renderScroll(productos))
     .catch(err => console.error("Error cargando productos scroll:", err));
@@ -98,3 +102,4 @@ function agregarAlCarrito(producto) {
   localStorage.setItem("carrito", JSON.stringify(carrito));
   alert(`"${producto.titulo}" fue agregado al carrito`);
 }
+
