@@ -1,46 +1,18 @@
-import { navItems } from "./data.js";
+const base = "/ecommerce-app/";
+const imgBase = base + "images/";
 
-document.addEventListener("DOMContentLoaded", () => {
-  // Ruta absoluta relativa al proyecto en GitHub Pages
-  const logoPath = "/ecommerce-app/images/logo.jpg";
-
-  const usuarioLogueado = sessionStorage.getItem("usuarioLogueado") === "true";
-
-  const navbar = document.createElement("div");
-  navbar.className = "navbar";
-
-  const logo = document.createElement("div");
-  logo.className = "logo";
-  logo.innerHTML = `<img src="${logoPath}" alt="Logo Casa Nova" height="40">`;
-
-  const links = document.createElement("div");
-  links.className = "nav-links";
-
-  const itemsFiltrados = navItems.filter(item => {
-    if (item.title === "Login") return !usuarioLogueado;
-    if (item.title === "Cerrar sesión") return usuarioLogueado;
-    return true;
-  });
-
-  itemsFiltrados.forEach(item => {
-    const link = document.createElement("a");
-    link.href = item.url;
-
-    if (item.icon && item.title !== "Cerrar sesión") {
-      // Ajustar también los íconos a rutas absolutas
-      link.innerHTML = `<img src="/ecommerce-app/${item.icon}" alt="${item.title}" height="20"> ${item.title}`;
-    } else {
-      link.textContent = item.title;
-    }
-
-    if (item.class) {
-      link.classList.add(item.class);
-    }
-
-    links.appendChild(link);
-  });
+export const navItems = [
+  { title: "Home", url: base + "index.html", icon: imgBase + "home.svg" },
+  { title: "Decoración", url: base + "pages/decoracion.html", icon: imgBase + "decoracion.svg" },
+  { title: "Tecnología", url: base + "pages/tecnologia.html", icon: imgBase + "tecnologia.svg" },
+  { title: "Hogar", url: base + "pages/hogar.html", icon: imgBase + "hogar.svg" },
+  { title: "Carrito", url: base + "pages/carrito.html", icon: imgBase + "carrito.svg" },
+  { title: "Login", url: base + "pages/login.html", icon: imgBase + "login.svg" },
+  { title: "Cerrar sesión", url: "#", class: "btn-logout", icon: imgBase + "logout.svg" }
+];
 
   navbar.appendChild(logo);
   navbar.appendChild(links);
   document.body.prepend(navbar);
 });
+
