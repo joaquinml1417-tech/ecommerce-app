@@ -5,7 +5,7 @@
     "titulo": "Cuadro Abstracto",
     "descripcion": "Ideal para salas modernas. Marco de madera natural.",
     "precio": 4500,
-    "imagen": "../images/cuadro.webp"
+    "imagen": "images/cuadro.webp"
   },
   {
     "id": 2,
@@ -13,7 +13,7 @@
     "titulo": "Lámpara Vintage",
     "descripcion": "Diseño retro con luz cálida. Base metálica.",
     "precio": 6200,
-    "imagen": "../images/lampara.webp"
+    "imagen": "images/lampara.webp"
   },
   {
     "id": 3,
@@ -21,7 +21,7 @@
     "titulo": "Textil Bohemio",
     "descripcion": "Estilo étnico, ideal para sillones o paredes.",
     "precio": 3800,
-    "imagen": "../images/textil.webp"
+    "imagen": "images/textil.webp"
   },
   {
     "id": 4,
@@ -29,7 +29,7 @@
     "titulo": "Auriculares Bluetooth",
     "descripcion": "Compactos, con estuche de carga. Ideales para música y llamadas.",
     "precio": 9800,
-    "imagen": "../images/auriculares.webp"
+    "imagen": "images/auriculares.webp"
   },
   {
     "id": 5,
@@ -37,7 +37,7 @@
     "titulo": "Smartwatch Huawei GT",
     "descripcion": "Pantalla AMOLED. Control de actividad y estilo ejecutivo.",
     "precio": 22500,
-    "imagen": "../images/smartwatch.webp"
+    "imagen": "images/reloj-inteligente.webp"
   },
   {
     "id": 6,
@@ -45,7 +45,7 @@
     "titulo": "Silla Ergonómica",
     "descripcion": "Respaldo alto, diseño cómodo. Ideal para home office.",
     "precio": 12400,
-    "imagen": "../images/silla.webp"
+    "imagen": "images/silla.webp"
   },
   {
     "id": 7,
@@ -53,7 +53,7 @@
     "titulo": "Sillón Moderno",
     "descripcion": "Tapizado gris con patas doradas. Ideal para salas de estar.",
     "precio": 18900,
-    "imagen": "../images/sillon.webp"
+    "imagen": "images/sillon.webp"
   },
   {
     "id": 8,
@@ -61,7 +61,7 @@
     "titulo": "Mesa Auxiliar",
     "descripcion": "Diseño moderno de madera. Ideal para comedor familiar.",
     "precio": 7500,
-    "imagen": "../images/mesa.webp"
+    "imagen": "images/mesa.webp"
   },
   {
     "id": 9,
@@ -69,54 +69,59 @@
     "titulo": "Silla Madera",
     "descripcion": "Diseño moderno con respaldo alto. Ideal para comedor.",
     "precio": 12400,
-    "imagen": "../images/sillamadera.webp"
+    "imagen": "images/sillamadera.webp"
   },
   {
-  "id": 10,
-  "categoria": "decoracion",
-  "titulo": "Espejo Redondo",
-  "descripcion": "Marco dorado, ideal para entradas o baños.",
-  "precio": 5200,
-  "imagen": "../images/espejo.webp"
-},
-{
-  "id": 11,
-  "categoria": "decoracion",
-  "titulo": "Florero Cerámico",
-  "descripcion": "Diseño minimalista en tonos neutros.",
-  "precio": 3100,
-  "imagen": "../images/florero.webp"
-},
-{
-  "id": 12,
-  "categoria": "tecnologia",
-  "titulo": "Teclado Mecánico RGB",
-  "descripcion": "Retroiluminado, ideal para gaming y oficina.",
-  "precio": 8700,
-  "imagen": "../images/teclado.webp"
-},
-{
-  "id": 13,
-  "categoria": "tecnologia",
-  "titulo": "Monitor 24'' Full HD",
-  "descripcion": "Pantalla LED con alta definición y bajo consumo.",
-  "precio": 31500,
-  "imagen": "../images/monitor.webp"
-},
-{
-  "id": 14,
-  "categoria": "hogar",
-  "titulo": "Almohadón Decorativo",
-  "descripcion": "Diseño geométrico, ideal para sillones y camas.",
-  "precio": 2900,
-  "imagen": "../images/almohadon.webp"
-},
-{
-  "id": 15,
-  "categoria": "hogar",
-  "titulo": "Cortina Blackout",
-  "descripcion": "Bloquea la luz y mejora la privacidad.",
-  "precio": 6800,
+    "id": 10,
+    "categoria": "decoracion",
+    "titulo": "Espejo Redondo",
+    "descripcion": "Marco dorado, ideal para entradas o baños.",
+    "precio": 5200,
+    "imagen": "images/espejo.webp"
+  },
+  {
+    "id": 11,
+    "categoria": "decoracion",
+    "titulo": "Florero Cerámico",
+    "descripcion": "Diseño minimalista en tonos neutros.",
+    "precio": 3100,
+    "imagen": "images/florero.webp"
+  },
+  {
+    "id": 12,
+    "categoria": "tecnologia",
+    "titulo": "Teclado Mecánico RGB",
+    "descripcion": "Retroiluminado, ideal para gaming y oficina.",
+    "precio": 8700,
+    "imagen": "images/teclado.webp"
+  },
+  {
+    "id": 13,
+    "categoria": "tecnologia",
+    "titulo": "Monitor 24'' Full HD",
+    "descripcion": "Pantalla LED con alta definición y bajo consumo.",
+    "precio": 31500,
+    "imagen": "images/monitor.webp"
+  },
+  {
+    "id": 14,
+    "categoria": "hogar",
+    "titulo": "Almohadón Decorativo",
+    "descripcion": "Diseño geométrico, ideal para sillones y camas.",
+    "precio": 2900,
+    "imagen": "images/almohadon.webp"
+  },
+  {
+    "id": 15,
+    "categoria": "hogar",
+    "titulo": "Cortina Blackout",
+    "descripcion": "Bloquea la luz y mejora la privacidad.",
+    "precio": 6800,
+    "imagen": "images/cortina.webp"
+  }
+]
+
   "imagen": "../images/cortina.webp"
 }
 ]
+
