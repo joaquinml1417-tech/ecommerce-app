@@ -1,8 +1,5 @@
-// Detecta el nombre del repo desde la URL
-const pathParts = window.location.pathname.split("/");
-const repo = pathParts[1]; // ej: "ecommerce-app"
-
-export const base = repo ? `/${repo}/` : "./";
+// Como el repo está publicado en /ecommerce-app/, fijamos el base directamente
+export const base = "/ecommerce-app/";
 export const imgBase = base + "images/";
 
 export const navItems = [
@@ -14,4 +11,5 @@ export const navItems = [
   { title: "Login", url: base + "pages/login.html", icon: imgBase + "login.svg" },
   { title: "Cerrar sesión", url: "#", class: "btn-logout", icon: imgBase + "logout.svg" }
 ];
+
 
