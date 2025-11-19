@@ -24,21 +24,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     fetch(basePath + "datos/productos.json")
       .then(res => res.json())
-      .then(productos => renderProductosHome(productos, basePath))
+      .then(productos => renderProductosHome(productos))
       .catch(err => console.error("Error cargando productos del home:", err));
   }
 
   // Renderizar barra scroll con productos aleatorios
   fetch(basePath + "datos/productos.json")
     .then(res => res.json())
-    .then(productos => renderScroll(productos, basePath))
+    .then(productos => renderScroll(productos))
     .catch(err => console.error("Error cargando productos scroll:", err));
 
   initScrollControls();
 });
 
 // Renderiza productos destacados en el home (2 por categoría)
-function renderProductosHome(productos, basePath) {
+function renderProductosHome(productos) {
   const categorias = ["decoracion", "tecnologia", "hogar"];
   const contenedor = document.getElementById("productos-home");
 
@@ -48,7 +48,7 @@ function renderProductosHome(productos, basePath) {
       const card = document.createElement("div");
       card.className = "product-card";
       card.innerHTML = `
-        <img src="${basePath + p.imagen}" alt="${p.titulo}" class="product-img">
+        <img src="${p.imagen}" alt="${p.titulo}" class="product-img">
         <h3>${p.titulo}</h3>
         <p>${p.descripcion}</p>
         <span class="price">$${p.precio}</span>
@@ -61,7 +61,7 @@ function renderProductosHome(productos, basePath) {
 }
 
 // Renderiza barra scroll con 8 productos aleatorios
-function renderScroll(productos, basePath) {
+function renderScroll(productos) {
   const aleatorios = productos.sort(() => 0.5 - Math.random()).slice(0, 8);
   const contenedorScroll = document.getElementById("scroll-productos");
 
@@ -69,7 +69,7 @@ function renderScroll(productos, basePath) {
     const card = document.createElement("div");
     card.className = "product-card";
     card.innerHTML = `
-      <img src="${basePath + p.imagen}" alt="${p.titulo}" class="product-img">
+      <img src="${p.imagen}" alt="${p.titulo}" class="product-img">
       <h3>${p.titulo}</h3>
       <p>${p.descripcion}</p>
       <span class="price">$${p.precio}</span>
@@ -102,5 +102,3 @@ function agregarAlCarrito(producto) {
   localStorage.setItem("carrito", JSON.stringify(carrito));
   alert(`"${producto.titulo}" fue agregado al carrito`);
 }
-
-
