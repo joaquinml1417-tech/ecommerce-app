@@ -1,4 +1,5 @@
-const base = "/ecommerce-app/";
+const isRoot = window.location.pathname.endsWith("index.html") || window.location.pathname === "/";
+const base = isRoot ? "" : "../";
 const imgBase = base + "images/";
 
 export const navItems = [
@@ -10,5 +11,6 @@ export const navItems = [
   { title: "Login", url: base + "pages/login.html", icon: imgBase + "login.svg" },
   { title: "Cerrar sesión", url: "#", class: "btn-logout", icon: imgBase + "logout.svg" }
 ];
+
 
 
