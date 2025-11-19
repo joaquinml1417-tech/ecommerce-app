@@ -6,22 +6,26 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <!-- Navbar se inyecta desde navbar.js -->
   <script type="module" src="js/navbar.js"></script>
 
   <div class="container">
+    <!-- Logo de bienvenida -->
     <div class="logo-bienvenida">
-      <img src="images/Logo.jpg" alt="Logo Casa Nova">
+      <img src="images/logo.jpg" alt="Logo Casa Nova">
     </div>
 
     <h1>Bienvenido a <span class="highlight">Casa Nova</span></h1>
     <p id="mensaje-bienvenida">Explorá nuestros productos o registrate para comenzar.</p>
     <a class="btn" href="pages/registro.html">Ir al registro</a>
 
+    <!-- Sección destacado -->
     <div class="destacado">
       <h3>¡Descubrí lo nuevo!</h3>
       <p>Productos seleccionados para transformar tu hogar con estilo y tecnología.</p>
     </div>
 
+    <!-- Promo Visa -->
     <div class="promo-tarjeta">
       <img src="images/promo-visa.webp" alt="Promo Visa" class="promo-img">
       <div class="promo-texto">
@@ -31,6 +35,7 @@
       </div>
     </div>
 
+    <!-- Barra scroll -->
     <div class="barra-scroll">
       <h3>Inspirate con estos productos</h3>
       <div class="scroll-controls">
@@ -40,16 +45,18 @@
       <div id="scroll-productos" class="scroll-container"></div>
     </div>
 
+    <!-- Productos destacados -->
     <div id="productos-home" class="product-grid"></div>
   </div>
 
+  <!-- Scripts -->
   <script src="js/logout.js"></script>
   <script src="js/home.js"></script>
 
+  <!-- Footer -->
   <footer>
     <p>&copy; 2025 Casa Nova. Todos los derechos reservados.</p>
     <p>Contacto: info@casanova.com.ar</p>
   </footer>
 </body>
 </html>
-
