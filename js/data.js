@@ -11,3 +11,4 @@ export const navItems = [
   { title: "Cerrar sesión", url: "#", class: "btn-logout", icon: imgBase + "logout.svg" }
 ];
 
+
