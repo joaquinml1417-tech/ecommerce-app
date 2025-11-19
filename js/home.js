@@ -5,6 +5,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const botonRegistro = document.querySelector(".btn");
   const mensaje = document.getElementById("mensaje-bienvenida");
 
+  // Detectar si estamos en GitHub Pages o en local
+  const repo = window.location.pathname.split("/")[1]; // "ecommerce-app"
+  const basePath = repo ? `/${repo}/` : "./";
+
   // Mostrar mensaje de login si existe
   if (mensajeLogin) {
     alert(mensajeLogin);
@@ -20,21 +24,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     fetch("data/productos.json")
       .then(res => res.json())
-      .then(productos => renderProductosHome(productos))
+      .then(productos => renderProductosHome(productos, basePath))
       .catch(err => console.error("Error cargando productos del home:", err));
   }
 
   // Renderizar barra scroll con productos aleatorios
   fetch("data/productos.json")
     .then(res => res.json())
-    .then(productos => renderScroll(productos))
+    .then(productos => renderScroll(productos, basePath))
     .catch(err => console.error("Error cargando productos scroll:", err));
 
   initScrollControls();
 });
 
 // Renderiza productos destacados en el home (2 por categoría)
-function renderProductosHome(productos) {
+function renderProductosHome(productos, basePath) {
   const categorias = ["decoracion", "tecnologia", "hogar"];
   const contenedor = document.getElementById("productos-home");
 
@@ -44,7 +48,7 @@ function renderProductosHome(productos) {
       const card = document.createElement("div");
       card.className = "product-card";
       card.innerHTML = `
-        <img src="${p.imagen}" alt="${p.titulo}" class="product-img">
+        <img src="${basePath + p.imagen}" alt="${p.titulo}" class="product-img">
         <h3>${p.titulo}</h3>
         <p>${p.descripcion}</p>
         <span class="price">$${p.precio}</span>
@@ -57,7 +61,7 @@ function renderProductosHome(productos) {
 }
 
 // Renderiza barra scroll con 8 productos aleatorios
-function renderScroll(productos) {
+function renderScroll(productos, basePath) {
   console.log("Renderizando scroll con:", productos); // debug
   const aleatorios = productos.sort(() => 0.5 - Math.random()).slice(0, 8);
   const contenedorScroll = document.getElementById("scroll-productos");
@@ -68,7 +72,7 @@ function renderScroll(productos) {
     const card = document.createElement("div");
     card.className = "product-card";
     card.innerHTML = `
-      <img src="${p.imagen}" alt="${p.titulo}" class="product-img">
+      <img src="${basePath + p.imagen}" alt="${p.titulo}" class="product-img">
       <h3>${p.titulo}</h3>
       <p>${p.descripcion}</p>
       <span class="price">$${p.precio}</span>
