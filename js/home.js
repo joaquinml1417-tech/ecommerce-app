@@ -52,6 +52,27 @@ function renderProductosHome(productos) {
       `;
       card.querySelector(".btn").addEventListener("click", () => agregarAlCarrito(p));
       contenedor.appendChild(card);
+      function renderScroll(productos) {
+  console.log("Renderizando scroll con:", productos); // 👈 esto
+
+  const aleatorios = productos.sort(() => 0.5 - Math.random()).slice(0, 8);
+  const contenedorScroll = document.getElementById("scroll-productos");
+
+  contenedorScroll.innerHTML = "";
+
+  aleatorios.forEach(p => {
+    const card = document.createElement("div");
+    card.className = "product-card";
+    card.innerHTML = `
+      <img src="${p.imagen}" alt="${p.titulo}" class="product-img">
+      <h3>${p.titulo}</h3>
+      <p>${p.descripcion}</p>
+      <span class="price">$${p.precio}</span>
+    `;
+    contenedorScroll.appendChild(card);
+  });
+}
+
     });
   });
 }
@@ -100,5 +121,6 @@ function agregarAlCarrito(producto) {
   localStorage.setItem("carrito", JSON.stringify(carrito));
   alert(`"${producto.titulo}" fue agregado al carrito`);
 }
+
 
 
