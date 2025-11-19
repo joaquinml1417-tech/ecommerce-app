@@ -1,19 +1,49 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Casa Nova - Inicio</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <!-- Navbar se inyecta desde navbar.js -->
-  <script type="module" src="js/navbar.js"></script>
+import { navItems } from "./data.js";
 
-  <div class="container">
-    <!-- Logo de bienvenida -->
-    <div class="logo-bienvenida">
-      <img src="images/logo.jpg" alt="Logo Casa Nova">
-    </div>
+document.addEventListener("DOMContentLoaded", () => {
+  const logoPath = "/ecommerce-app/images/logo.jpg";
+  const usuarioLogueado = sessionStorage.getItem("usuarioLogueado") === "true";
+
+  const navbar = document.createElement("div");
+  navbar.className = "navbar";
+
+  // Logo
+  const logo = document.createElement("div");
+  logo.className = "logo";
+  logo.innerHTML = `<img src="${logoPath}" alt="Logo Casa Nova" height="40">`;
+
+  // Links
+  const links = document.createElement("div");
+  links.className = "nav-links";
+
+  const itemsFiltrados = navItems.filter(item => {
+    if (item.title === "Login") return !usuarioLogueado;
+    if (item.title === "Cerrar sesión") return usuarioLogueado;
+    return true;
+  });
+
+  itemsFiltrados.forEach(item => {
+    const link = document.createElement("a");
+    link.href = item.url;
+
+    if (item.icon && item.title !== "Cerrar sesión") {
+      link.innerHTML = `<img src="${item.icon}" alt="${item.title}" height="20"> ${item.title}`;
+    } else {
+      link.textContent = item.title;
+    }
+
+    if (item.class) {
+      link.classList.add(item.class);
+    }
+
+    links.appendChild(link);
+  });
+
+  navbar.appendChild(logo);
+  navbar.appendChild(links);
+  document.body.prepend(navbar);
+});
+
 
     <h1>Bienvenido a <span class="highlight">Casa Nova</span></h1>
     <p id="mensaje-bienvenida">Explorá nuestros productos o registrate para comenzar.</p>
@@ -60,6 +90,7 @@
   </footer>
 </body>
 </html>
+
 
 
 
