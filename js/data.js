@@ -1,5 +1,4 @@
-const isRoot = window.location.pathname.endsWith("index.html") || window.location.pathname === "/";
-const base = isRoot ? "" : "../";
+const base = "/ecommerce-app/";
 const imgBase = base + "images/";
 
 export const navItems = [
