@@ -1,8 +1,8 @@
 import { navItems } from "./data.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  const isRoot = window.location.pathname.endsWith("index.html") || window.location.pathname === "/";
-  const logoPath = isRoot ? "images/Logo.jpg" : "../images/Logo.jpg";
+
+  const logoPath = "/ecommerce-app/images/Logo.jpg";
 
   const usuarioLogueado = sessionStorage.getItem("usuarioLogueado") === "true";
 
