@@ -45,10 +45,11 @@ function renderProductosHome(productos, basePath) {
   categorias.forEach(cat => {
     const grupo = productos.filter(p => p.categoria === cat).slice(0, 2);
     grupo.forEach(p => {
+      const imagenSrc = basePath + p.imagen.replace(/^(\.\.\/)+/, ""); // ← ajuste para rutas con ../
       const card = document.createElement("div");
       card.className = "product-card";
       card.innerHTML = `
-        <img src="${basePath + p.imagen}" alt="${p.titulo}" class="product-img">
+        <img src="${imagenSrc}" alt="${p.titulo}" class="product-img">
         <h3>${p.titulo}</h3>
         <p>${p.descripcion}</p>
         <span class="price">$${p.precio}</span>
@@ -62,17 +63,18 @@ function renderProductosHome(productos, basePath) {
 
 // Renderiza barra scroll con 8 productos aleatorios
 function renderScroll(productos, basePath) {
-  console.log("Renderizando scroll con:", productos); // debug
+  console.log("Renderizando scroll con:", productos);
   const aleatorios = productos.sort(() => 0.5 - Math.random()).slice(0, 8);
   const contenedorScroll = document.getElementById("scroll-productos");
 
   contenedorScroll.innerHTML = "";
 
   aleatorios.forEach(p => {
+    const imagenSrc = basePath + p.imagen.replace(/^(\.\.\/)+/, ""); // ← mismo ajuste
     const card = document.createElement("div");
     card.className = "product-card";
     card.innerHTML = `
-      <img src="${basePath + p.imagen}" alt="${p.titulo}" class="product-img">
+      <img src="${imagenSrc}" alt="${p.titulo}" class="product-img">
       <h3>${p.titulo}</h3>
       <p>${p.descripcion}</p>
       <span class="price">$${p.precio}</span>
@@ -105,5 +107,6 @@ function agregarAlCarrito(producto) {
   localStorage.setItem("carrito", JSON.stringify(carrito));
   alert(`"${producto.titulo}" fue agregado al carrito`);
 }
+
 
 
