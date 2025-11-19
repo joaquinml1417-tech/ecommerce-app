@@ -5,17 +5,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const botonRegistro = document.querySelector(".btn");
   const mensaje = document.getElementById("mensaje-bienvenida");
 
-  // Detectar si estamos en GitHub Pages o en local
-  const repo = window.location.pathname.split("/")[1]; // "ecommerce-app"
+  const repo = window.location.pathname.split("/")[1];
   const basePath = repo ? `/${repo}/` : "./";
 
-  // Mostrar mensaje de login si existe
   if (mensajeLogin) {
     alert(mensajeLogin);
     sessionStorage.removeItem("mensajeLogin");
   }
 
-  // Si el usuario está logueado, ocultar botón de registro y mostrar productos destacados
   if (logueado) {
     if (botonRegistro) botonRegistro.style.display = "none";
     if (mensaje) {
@@ -28,7 +25,6 @@ document.addEventListener("DOMContentLoaded", () => {
       .catch(err => console.error("Error cargando productos del home:", err));
   }
 
-  // Renderizar barra scroll con productos aleatorios
   fetch("data/productos.json")
     .then(res => res.json())
     .then(productos => renderScroll(productos, basePath))
@@ -37,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initScrollControls();
 });
 
-// Renderiza productos destacados en el home (2 por categoría)
+
 function renderProductosHome(productos, basePath) {
   const categorias = ["decoracion", "tecnologia", "hogar"];
   const contenedor = document.getElementById("productos-home");
@@ -45,7 +41,7 @@ function renderProductosHome(productos, basePath) {
   categorias.forEach(cat => {
     const grupo = productos.filter(p => p.categoria === cat).slice(0, 2);
     grupo.forEach(p => {
-      const imagenSrc = basePath + p.imagen.replace(/^(\.\.\/)+/, ""); // ← ajuste para rutas con ../
+      const imagenSrc = basePath + p.imagen.replace(/^(\.\.\/)+/, ""); 
       const card = document.createElement("div");
       card.className = "product-card";
       card.innerHTML = `
@@ -61,7 +57,6 @@ function renderProductosHome(productos, basePath) {
   });
 }
 
-// Renderiza barra scroll con 8 productos aleatorios
 function renderScroll(productos, basePath) {
   console.log("Renderizando scroll con:", productos);
   const aleatorios = productos.sort(() => 0.5 - Math.random()).slice(0, 8);
@@ -70,7 +65,7 @@ function renderScroll(productos, basePath) {
   contenedorScroll.innerHTML = "";
 
   aleatorios.forEach(p => {
-    const imagenSrc = basePath + p.imagen.replace(/^(\.\.\/)+/, ""); // ← mismo ajuste
+    const imagenSrc = basePath + p.imagen.replace(/^(\.\.\/)+/, ""); 
     const card = document.createElement("div");
     card.className = "product-card";
     card.innerHTML = `
@@ -83,7 +78,7 @@ function renderScroll(productos, basePath) {
   });
 }
 
-// Controles de scroll lateral
+
 function initScrollControls() {
   document.getElementById("scroll-left").addEventListener("click", () => {
     document.getElementById("scroll-productos").scrollBy({ left: -300, behavior: "smooth" });
@@ -93,7 +88,6 @@ function initScrollControls() {
   });
 }
 
-// Agregar producto al carrito
 function agregarAlCarrito(producto) {
   let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
   const existente = carrito.find(p => p.id === producto.id);
@@ -107,6 +101,7 @@ function agregarAlCarrito(producto) {
   localStorage.setItem("carrito", JSON.stringify(carrito));
   alert(`"${producto.titulo}" fue agregado al carrito`);
 }
+
 
 
 
