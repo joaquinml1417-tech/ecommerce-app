@@ -65,6 +65,8 @@ function renderScroll(productos) {
   const aleatorios = productos.sort(() => 0.5 - Math.random()).slice(0, 8);
   const contenedorScroll = document.getElementById("scroll-productos");
 
+  contenedorScroll.innerHTML = ""; // limpiar antes de renderizar
+
   aleatorios.forEach(p => {
     const card = document.createElement("div");
     card.className = "product-card";
@@ -102,4 +104,5 @@ function agregarAlCarrito(producto) {
   localStorage.setItem("carrito", JSON.stringify(carrito));
   alert(`"${producto.titulo}" fue agregado al carrito`);
 }
+
 
