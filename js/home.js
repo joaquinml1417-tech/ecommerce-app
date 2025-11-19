@@ -18,14 +18,14 @@ document.addEventListener("DOMContentLoaded", () => {
       mensaje.textContent = "Bienvenido de nuevo. Explorá nuestras categorías y descubrí productos para tu hogar y vida digital.";
     }
 
-    fetch("datos/productos.json")
+    fetch("/ecommerce-app/datos/productos.json")
       .then(res => res.json())
       .then(productos => renderProductosHome(productos))
       .catch(err => console.error("Error cargando productos del home:", err));
   }
 
   // Renderizar barra scroll con productos aleatorios
-  fetch("datos/productos.json")
+  fetch("/ecommerce-app/datos/productos.json")
     .then(res => res.json())
     .then(productos => renderScroll(productos))
     .catch(err => console.error("Error cargando productos scroll:", err));
@@ -98,4 +98,3 @@ function agregarAlCarrito(producto) {
   localStorage.setItem("carrito", JSON.stringify(carrito));
   alert(`"${producto.titulo}" fue agregado al carrito`);
 }
-
