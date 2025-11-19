@@ -1,8 +1,8 @@
 import { navItems } from "./data.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  const isRoot = window.location.pathname.endsWith("index.html") || window.location.pathname === "/";
-  const logoPath = isRoot ? "images/Logo.jpg" : "../images/Logo.jpg";
+  // Ruta absoluta relativa al proyecto en GitHub Pages
+  const logoPath = "/ecommerce-app/images/logo.jpg";
 
   const usuarioLogueado = sessionStorage.getItem("usuarioLogueado") === "true";
 
@@ -25,8 +25,10 @@ document.addEventListener("DOMContentLoaded", () => {
   itemsFiltrados.forEach(item => {
     const link = document.createElement("a");
     link.href = item.url;
+
     if (item.icon && item.title !== "Cerrar sesión") {
-      link.innerHTML = `<img src="${item.icon}" alt="${item.title}" height="20"> ${item.title}`;
+      // Ajustar también los íconos a rutas absolutas
+      link.innerHTML = `<img src="/ecommerce-app/${item.icon}" alt="${item.title}" height="20"> ${item.title}`;
     } else {
       link.textContent = item.title;
     }
@@ -42,4 +44,3 @@ document.addEventListener("DOMContentLoaded", () => {
   navbar.appendChild(links);
   document.body.prepend(navbar);
 });
-
