@@ -1,4 +1,6 @@
-const repo = window.location.pathname.split("/")[1]; 
+// Detecta el nombre del repo desde la URL
+const pathParts = window.location.pathname.split("/");
+const repo = pathParts[1]; // ej: "ecommerce-app"
 
 export const base = repo ? `/${repo}/` : "./";
 export const imgBase = base + "images/";
