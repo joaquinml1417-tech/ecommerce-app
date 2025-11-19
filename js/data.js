@@ -1,5 +1,5 @@
-const isRoot = window.location.pathname.endsWith("index.html") || window.location.pathname === "/";
-const base = isRoot ? "" : "../";
+// Definimos rutas absolutas relativas al proyecto en GitHub Pages
+const base = "/ecommerce-app/";
 const imgBase = base + "images/";
 
 export const navItems = [
