@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Casa Nova - Carrito</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <script type="module" src="../js/navbar.js"></script>
+  <script src="../js/logout.js"></script>
+
+  <div class="container">
+    <h2>Tu carrito</h2>
+    <p>Aquí aparecen los productos que agregaste.</p>
+    <div id="carrito-contenido"></div>
+    <div id="total-final" class="total-final"></div>
+    <div class="acciones-carrito">
+      <button class="btn" onclick="vaciarCarrito()">Vaciar carrito</button>
+    </div>
+  </div>
+
+  <script>
+    const contenedor = document.getElementById("carrito-contenido");
+    const totalFinal = document.getElementById("total-final");
+    const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+    let totalGeneral = 0;
+
+    if (!Array.isArray(carrito) || carrito.length === 0) {
+      contenedor.innerHTML = "<p>Tu carrito está vacío.</p>";
+      document.querySelector(".acciones-carrito").style.display = "none";
+    } else {
+      carrito.forEach((producto, index) => {
+        if (!producto || !producto.id || !producto.titulo) return;
+
+        const totalProducto = producto.precio * (producto.cantidad || 1);
+        totalGeneral += totalProducto;
+
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `
+          <img src="${producto.imagen || ''}" alt="${producto.titulo}">
+          <div class="card-info">
+            <strong>${producto.titulo}</strong>
+            <label>
+              Cantidad:
+              <input type="number" min="1" value="${producto.cantidad || 1}" class="input-cantidad" data-index="${index}">
+            </label>
+            <div class="acciones">
+              <button class="btn btn-actualizar" data-index="${index}">Actualizar</button>
+              <button class="btn" onclick="eliminarProducto(${index})">Eliminar</button>
+            </div>
+          </div>
+          <div class="card-precio">
+            <span>Unitario: $${producto.precio}</span><br>
+            <span>Total: $${totalProducto}</span>
+          </div>
+        `;
+        contenedor.appendChild(card);
+      });
+
+      totalFinal.textContent = `Total de tu compra: $${totalGeneral}`;
+    }
+
+    function eliminarProducto(index) {
+      let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+      carrito.splice(index, 1);
+      localStorage.setItem("carrito", JSON.stringify(carrito));
+      location.reload();
+    }
+
+    function vaciarCarrito() {
+      if (confirm("¿Estás seguro de que querés vaciar el carrito?")) {
+        localStorage.removeItem("carrito");
+        location.reload();
+      }
+    }
+
+    document.querySelectorAll(".btn-actualizar").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const index = parseInt(btn.dataset.index);
+        const input = document.querySelector(`.input-cantidad[data-index="${index}"]`);
+        const nuevaCantidad = parseInt(input.value);
+
+        if (nuevaCantidad >= 1) {
+          carrito[index].cantidad = nuevaCantidad;
+          localStorage.setItem("carrito", JSON.stringify(carrito));
+          location.reload();
+        } else {
+          alert("La cantidad debe ser al menos 1.");
+        }
+      });
+    });
+  </script>
+
+  <footer>
+    <p>&copy; 2025 Casa Nova. Todos los derechos reservados.</p>
+    <p>Contacto: info@casanova.com.ar</p>
+  </footer>
+</body>
+</html>
