@@ -5,10 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const botonRegistro = document.querySelector(".btn");
   const mensaje = document.getElementById("mensaje-bienvenida");
 
-  // Detectar si estamos en GitHub Pages o en local
-  const repo = window.location.pathname.split("/")[1]; // "ecommerce-app" en Pages
-  const basePath = repo ? `/${repo}/` : "./";
-
   // Mostrar mensaje de login si existe
   if (mensajeLogin) {
     alert(mensajeLogin);
@@ -22,14 +18,14 @@ document.addEventListener("DOMContentLoaded", () => {
       mensaje.textContent = "Bienvenido de nuevo. Explorá nuestras categorías y descubrí productos para tu hogar y vida digital.";
     }
 
-    fetch(basePath + "datos/productos.json")
+    fetch("datos/productos.json")
       .then(res => res.json())
       .then(productos => renderProductosHome(productos))
       .catch(err => console.error("Error cargando productos del home:", err));
   }
 
   // Renderizar barra scroll con productos aleatorios
-  fetch(basePath + "datos/productos.json")
+  fetch("datos/productos.json")
     .then(res => res.json())
     .then(productos => renderScroll(productos))
     .catch(err => console.error("Error cargando productos scroll:", err));
@@ -65,7 +61,7 @@ function renderScroll(productos) {
   const aleatorios = productos.sort(() => 0.5 - Math.random()).slice(0, 8);
   const contenedorScroll = document.getElementById("scroll-productos");
 
-  contenedorScroll.innerHTML = ""; // limpiar antes de renderizar
+  contenedorScroll.innerHTML = "";
 
   aleatorios.forEach(p => {
     const card = document.createElement("div");
