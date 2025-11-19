@@ -1,4 +1,3 @@
-// Como el repo está publicado en /ecommerce-app/, fijamos el base directamente
 export const base = "/ecommerce-app/";
 export const imgBase = base + "images/";
 
@@ -11,5 +10,6 @@ export const navItems = [
   { title: "Login", url: base + "pages/login.html", icon: imgBase + "login.svg" },
   { title: "Cerrar sesión", url: "#", class: "btn-logout", icon: imgBase + "logout.svg" }
 ];
+
 
 
