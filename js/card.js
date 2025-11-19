@@ -5,11 +5,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const titulo = document.title.toLowerCase();
   let categoria = "";
 
-  if (titulo.includes("decoración")) categoria = "decoracion";
-  else if (titulo.includes("tecnología")) categoria = "tecnologia";
+  if (titulo.includes("decoracion")) categoria = "decoracion";
+  else if (titulo.includes("tecnologia")) categoria = "tecnologia";
   else if (titulo.includes("hogar")) categoria = "hogar";
 
-  fetch("../data/productos.json")
+  fetch("../datos/productos.json")
     .then(res => res.json())
     .then(productos => {
       const logueado = sessionStorage.getItem("usuarioLogueado") === "true";
